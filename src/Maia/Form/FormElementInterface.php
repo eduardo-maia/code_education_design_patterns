@@ -13,4 +13,5 @@ interface FormElementInterface
 {
     public function getType();
     public function getNameId();
+    public function createField();
 }
