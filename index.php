@@ -25,6 +25,7 @@ spl_autoload_register(function($className) {
 # -----------------------------
 # GERA O FORMULÁRIO DA FASE 1
 # -----------------------------
+/*
 use Maia\Form\Form;
 
 $f = new Maia\Form\Form();
@@ -32,13 +33,13 @@ $f->addElement(new Maia\Form\InputText("Email"));
 $f->addElement(new Maia\Form\InputText("Assunto"));
 $f->addElement(new Maia\Form\TextArea("Mensagem"));
 print $f->render();
-
+*/
 
 
 # ------------------------------------------------------------------------------------
 # FASE 2: "Crie 4 instancias deste form com os campos que você quiser e renderize."
 # ------------------------------------------------------------------------------------
-
+/*
 $f = new Maia\Form\Form();
 $input = new Maia\Form\InputText("Manager");
 $input->createField();
@@ -66,6 +67,34 @@ $input2 = new Maia\Form\InputText("Twitter");
 $input2->createField();
 $input2 = new Maia\Form\InputText("LinkedIn");
 $input3->createField();
+$f->close();
+*/
+
+
+# ------------------------------------------------------------------------------------
+# FASE 2: "Crie 4 instancias deste form com os campos que você quiser e renderize."
+# ------------------------------------------------------------------------------------
+$f = new Maia\Form\Form();
+$f->createField("input_text", "Facebook");
+$f->createField("input_text", "Twitter");
+$f->createField("input_text", "LinkedIN");
+$f->render();
+$f->close();
+
+
+$f = new Maia\Form\Form();
+$f->createField("input_text", "Nome");
+$f->createField("input_text", "Telefone");
+$f->createField("textarea", "Comentarios");
+$f->render();
+$f->close();
+
+
+$f = new Maia\Form\Form();
+$f->createField("input_text", "Manager");
+$f->createField("input_text", "Registry");
+$f->createField("textarea", "Como anda seu ingles");
+$f->render();
 $f->close();
 
 ?>
