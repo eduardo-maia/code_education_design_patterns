@@ -75,29 +75,39 @@ $f->close();
 # FASE 2: "Crie 4 instancias deste form com os campos que você quiser e renderize."
 # ------------------------------------------------------------------------------------
 $f = new Maia\Form\Form();
-$f->createField("input_text", "Facebook");
-$f->createField("input_text", "Twitter");
-$f->createField("input_text", "LinkedIN");
-$f->render();
-$f->close();
+$f->createFieldset("Redes sociais");
+$f->createField( "input_text", array("Facebook","Twitter","LinkedIN") );
+$f->closeFieldset();
+echo $f->render();
 
 
 $f = new Maia\Form\Form();
-$f->createField("input_text", "Nome");
-$f->createField("input_text", "Telefone");
+$f->createField("input_text", array("Nome","Telefone") );
 $f->createField("textarea", "Comentarios");
-$f->render();
-$f->close();
+echo $f->render();
 
 
 $f = new Maia\Form\Form();
-$f->createField("input_text", "Manager");
-$f->createField("input_text", "Registry");
-$f->createField("textarea", "Como anda seu ingles");
-$f->render();
-$f->close();
+$f->createField("fieldset","Como anda seu ingles");
+$f->createField("input_text", "Pronuncie Manager");
+$f->createField("input_text", "Pronuncie Registry");
+$f->closeFieldset();
+$f->createField("textarea", "Fale sobre sua experiencia com PHP");
+echo $f->render();
 
 ?>
+
+
+<!--
+O exercício pede para que você crie o fieldset (será uma classe) e que seja possível inserir campos de formulário dentro do fieldset. Ex:
+
+$form = new Form();
+$inputNome = $form->createField('input', array('name'=>'nome'));
+$fieldsetDadosPessoais = $form->createField('fielset', array('legend'=>'Dados Pessoais'));
+$fieldsetDadosPessoais->addField($inputNome);
+$form->addField($fieldsetDadosPessoais);
+$form->render();
+-->
 
 </body>
 </html>
